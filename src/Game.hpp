@@ -1,8 +1,9 @@
 #pragma once
 
-class Game
+#include <RmlUi/Core.h>
+
+namespace Game
 {
-    public:
     bool Initialize();
-    int Run();
+    int  Run();
 };
