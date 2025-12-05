@@ -1,9 +1,12 @@
 #pragma once
 
-#include <RmlUi/Core.h>
+#include <string>
 
 namespace Game
 {
     bool Initialize();
-    int  Run();
+    void Shutdown();
+    int Run();
+    const char* GetBasePath();
+    std::string GetResoucesPath();
 };

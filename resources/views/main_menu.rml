@@ -1,0 +1,13 @@
+<rml>
+
+	<head>
+		<link type="text/css" href="main_menu.rcss" />
+		<title>Main Menu</title>
+	</head>
+
+	<body>
+		<button>Start New Game</button>
+		<button>Options</button>
+		<button>Quit game</button>
+	</body>
+</rml>
