@@ -6,8 +6,10 @@
 	</head>
 
 	<body>
-		<button>Start New Game</button>
-		<button>Options</button>
-		<button>Quit game</button>
+		<div class="menu">
+			<button>Start New Game</button>
+			<button>Options</button>
+			<button>Quit game</button>
+		</div>
 	</body>
 </rml>

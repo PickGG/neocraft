@@ -2,8 +2,9 @@ body{
 	font-family: Grixel Acme 7 Wide Xtnd;
 	font-weight: normal;
 	font-style: normal;
-	font-size: 16dp;
-	color: white;
+	font-size: 17dp;
+	background-color: aqua;
+	color: rgb(247, 247, 247);
 	width: 100vw;
 	height: 100vh;
 	
@@ -11,19 +12,28 @@ body{
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	gap: 5dp 0;
+}
+
+.menu{
+	width: 300dp;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 1vh 0;
 }
 
 button{
-	margin-left: auto;
-	margin-right: auto;
-	width: 300dp;
-	background-color: gray;
+	width: 100%;
+	background-color: #727272;
 	padding: 10dp;
 	text-align: center;
-	border: 1dp;
+	border: 2dp black;
+	font-effect: shadow( 2dp 2dp black );
+	cursor: pointer;
 }
 
 button:hover{
-	border-color: gray;
+	background-color: rgb(115, 107, 221);
 }
