@@ -1,13 +1,12 @@
 #pragma once
 
-#include "../IController.hpp"
+#include "../Controller.hpp"
+#include <RmlUi/Core/EventListener.h>
+#include <RmlUi/Core/Event.h>
 
-class MainMenuController : public IController
+class MainMenuController : public Controller, public Rml::EventListener
 {
-    Rml::ElementDocument* m_view;
 public:
     MainMenuController();
-    void OnShow();
-    void OnHide();
-    Rml::ElementDocument& GetDocument();
+    void ProcessEvent(Rml::Event& event);
 };

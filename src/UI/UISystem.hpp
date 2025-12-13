@@ -1,17 +1,16 @@
 #pragma once
 
-#include <RmlUi/Core.h>
-#include "IController.hpp"
+#include "Controller.hpp"
 #include <memory>
 
 namespace UISystem
 {
     // Controllers
-    extern std::unique_ptr<IController> MAIN_MENU_CONTROLLER;
+    extern std::unique_ptr<Controller> MAIN_MENU_CONTROLLER;
 
     bool Initialize();
     void Shutdown();
     bool ProcessEventsUpdateAndRender();
     Rml::Context& GetContext();
-    void SetMenu(IController* controller);
+    void SetMenu(Controller* controller);
 }

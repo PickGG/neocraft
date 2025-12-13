@@ -7,9 +7,9 @@
 
 	<body>
 		<div class="menu">
-			<button>Start New Game</button>
+			<button id="start">Start New Game</button>
 			<button>Options</button>
-			<button>Quit game</button>
+			<button id="quit">Quit game</button>
 		</div>
 	</body>
 </rml>

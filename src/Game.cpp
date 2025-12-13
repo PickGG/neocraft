@@ -4,51 +4,60 @@
 #include <RmlUi/Core.h>
 #include "RmlUi_Backend/RmlUi_Backend.h"
 #include <SDL3/SDL.h>
+#include "Logging.hpp"
 
-bool initialized = false;
+bool m_initialized = false;
 const char* CONTEXT_NAME = "main";
+bool m_quit;
 
 bool Game::Initialize()
 {
-	if(initialized)
+	if(m_initialized)
 		return true;
-	
-	SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "Game: Initializing");
+
+	LOG_INFO("Game: Initializing");
 	SDL_SetLogPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE);
-	SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "Game: BasePath: %s", Game::GetBasePath());
+	LOG_INFO("Game: BasePath: %s", Game::GetBasePath());
 	if(!UISystem::Initialize())
 		return false;
-	SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "Game: Initialize: done");
-	initialized = true;
-
+	
+	m_initialized = true;
+	m_quit = false;
+	LOG_INFO("Game: Initialized");
+	
     return true;
 }
 
 void Game::Shutdown()
 {
 	UISystem::Shutdown();
-	initialized = false;
-	SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Game: Shutdown");
+	m_initialized = false;
+	LOG_INFO("Game: Shutdown");
 }
 
 int Game::Run()
 {
-	if(!initialized)
+	if(!m_initialized)
 	{
-		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "You can't run the game unless it is initialized");
+		LOG_ERROR("You can't run the game unless it is initialized");
 		return -1;
 	}
 
 	UISystem::SetMenu(UISystem::MAIN_MENU_CONTROLLER.get());
 	
     bool running = true;
-	while (running)
+	while (running && !m_quit)
 	{
 		running = UISystem::ProcessEventsUpdateAndRender();
 	}
 
 	Game::Shutdown();
     return 0;
+}
+
+void Game::Quit()
+{
+	m_quit = true;
 }
 
 const char *Game::GetBasePath()
